@@ -1,15 +1,23 @@
 
+
+
+var mainDiv = document.querySelector(".container")
+
+
+
 function populatePage(data) {
 
+  }
 }
 
+
 function loadInventory() {
-  var myRequest = new XMLHttpRequest();
+  let myRequest = new XMLHttpRequest();
 
-  myRequest.addEventListener("load", (e) => {
+  myRequest.addEventListener("load", function(e) {
     var data = JSON.parse(e.target.responseText)
-    console.log(data);
-
+    console.log(data)
+    populatePage(data)
   });
   myRequest.open("GET", "inventory.json")
   myRequest.send();
