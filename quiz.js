@@ -6,11 +6,10 @@ var mainDiv = document.querySelector(".container")
 
 
 function populatePage(data) {
+      var rowDiv = document.createElement("div");
+          rowDiv.classList.add("row")
   for (var i = 0; i < data.cars.length; i++) {
-    var rowDiv = document.createElement("div");
     var colDiv1 = document.createElement("div");
-    // var colDiv2 = document.createElement("div");
-    // var colDiv3 = document.createElement("div");
     colDiv1.classList.add("col-md-3")
     if (i !== 0) {
       colDiv1.classList.add("col-md-offset-1")
@@ -26,8 +25,7 @@ function populatePage(data) {
 console.log(colDiv1);
     rowDiv.appendChild(colDiv1);
     mainDiv.appendChild(rowDiv)
-    // rowDiv.appendChild(colDiv2);
-    // rowDiv.appendChild(colDiv3);
+
 
   }
 }
