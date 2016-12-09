@@ -10,7 +10,7 @@ function populatePage(data) {
           rowDiv.classList.add("row")
   for (var i = 0; i < data.cars.length; i++) {
     var colDiv1 = document.createElement("div");
-    colDiv1.classList.add("col-md-3")
+    colDiv1.classList.add("col-md-3", "border-class")
     if (i !== 0) {
       colDiv1.classList.add("col-md-offset-1")
     }
