@@ -1,5 +1,5 @@
 
-function populatePade(data) {
+function populatePage(data) {
 
 }
 
