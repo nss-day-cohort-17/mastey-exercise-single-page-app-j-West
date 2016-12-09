@@ -36,7 +36,7 @@ console.log(colDiv1);
 function loadInventory() {
   let myRequest = new XMLHttpRequest();
 
-  myRequest.addEventListener("load", function(e) {
+  myRequest.addEventListener("load", (e) => {
     var data = JSON.parse(e.target.responseText)
     console.log(data)
     populatePage(data)
