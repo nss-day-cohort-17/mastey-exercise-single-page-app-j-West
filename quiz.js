@@ -32,12 +32,13 @@ function makeBorderBigger(div) {
 }
 
 function isTargetADiv(e) {
-  var carDivs = mainDiv.children
+  var carDivs = document.querySelector(".row").children
   for (var i = 0; i < carDivs.length; i++) {
+
 
     if (carDivs[i].classList.contains("border-class")) {
       console.log("works");
-      carDivs[i].classList.toggle("bigger-border")
+      carDivs[i].classList.remove("bigger-border")
     }
   }
 
