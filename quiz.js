@@ -19,6 +19,27 @@ function descriptionUpdate(e) {
 }
 
 
+function inputBarChanges() {
+  inputField.value = "";
+  inputField.focus();
+}
+
+function makeBorderBigger(div) {
+  // console.log("it works");
+  div.classList.toggle("bigger-border")
+
+  inputBarChanges()
+}
+
+function isTargetADiv(e) {
+  var carDivs = mainDiv.children
+  for (var i = 0; i < carDivs.length; i++) {
+
+    if (carDivs[i].classList.contains("border-class")) {
+      console.log("works");
+      carDivs[i].classList.toggle("bigger-border")
+    }
+  }
 
 
 function populatePage(data) {
