@@ -2,7 +2,7 @@ var mainDiv = document.querySelector(".container")
 var inputField = document.querySelector("#input-field")
 
 function descriptionUpdate(e) {
-  var carDivs = mainDiv.querySelectorAll("div")
+  var carDivs = mainDiv.querySelector(".row").children
   var selectedDiv;
 
   // console.log(carDivs);
