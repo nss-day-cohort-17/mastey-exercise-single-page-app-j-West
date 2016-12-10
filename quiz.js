@@ -41,6 +41,20 @@ function isTargetADiv(e) {
     }
   }
 
+  if (e.target.classList.contains("target-class") && e.target.tagName === "DIV") {
+    var divToChange = e.target;
+    makeBorderBigger(divToChange)
+  } else if (e.target.classList.contains("target-class")) {
+    var parentDiv = e.target.parentNode;
+    makeBorderBigger(parentDiv)
+  }
+
+}
+
+function activateEvents() {
+  mainDiv.addEventListener("click", isTargetADiv)
+  inputField.addEventListener("keyup", descriptionUpdate)
+}
 
 function populatePage(data) {
       var rowDiv = document.createElement("div");
