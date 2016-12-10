@@ -27,8 +27,18 @@ function inputBarChanges() {
   inputField.focus();
 }
 
-function makeBorderBigger(div) {
+function getRandomNum() {
+  return Math.floor(Math.random() * 19);
+}
+
+//
+
+function biggerBorderAndBackgroundColor(div, cArray) {
   // console.log("it works");
+  var rando = getRandomNum()
+
+  console.log(rando);
+  div.style.backgroundColor = cArray[rando]
   div.classList.toggle("bigger-border")
 
   inputBarChanges()
