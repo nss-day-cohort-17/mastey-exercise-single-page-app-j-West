@@ -1,9 +1,23 @@
 var mainDiv = document.querySelector(".container")
 var inputField = document.querySelector("#input-field")
 
+function descriptionUpdate(e) {
+  var carDivs = mainDiv.querySelectorAll("div")
+  var selectedDiv;
 
+  // console.log(carDivs);
 
-var mainDiv = document.querySelector(".container")
+  for (var i = 0; i < carDivs.length; i++) {
+
+      if (carDivs[i].classList.contains("bigger-border")) {
+        selectedDiv = carDivs[i]
+        i += 100
+      }
+      console.log(selectedDiv);
+  }
+
+}
+
 
 
 
