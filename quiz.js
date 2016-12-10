@@ -1,3 +1,5 @@
+var mainDiv = document.querySelector(".container")
+var inputField = document.querySelector("#input-field")
 
 
 
