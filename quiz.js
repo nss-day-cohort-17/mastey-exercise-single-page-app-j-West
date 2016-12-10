@@ -51,6 +51,7 @@ function borderAndBackgroundDefault() {
 
     if (carDivs[i].classList.contains("border-class")) {
       console.log("works");
+      carDivs[i].style.backgroundColor = "inherit"
       carDivs[i].classList.remove("bigger-border")
     }
   }
@@ -58,13 +59,13 @@ function borderAndBackgroundDefault() {
 
 function isTargetADiv(e) {
 borderAndBackgroundDefault()
-
+var colors = ["goldenrod", "burlywood", "magenta", "tomato", "teal", "crimson", "darkseagreen", "cyan", "mediumorchid", "oldlace", "gray", "mistyrose", "lightsalmon", "moccasin", "orchid", "silver", "thistle", "saddlebrown", "maroon"]
   if (e.target.classList.contains("target-class") && e.target.tagName === "DIV") {
     var divToChange = e.target;
-    makeBorderBigger(divToChange)
+    biggerBorderAndBackgroundColor(divToChange, colors)
   } else if (e.target.classList.contains("target-class")) {
     var parentDiv = e.target.parentNode;
-    makeBorderBigger(parentDiv)
+    biggerBorderAndBackgroundColor(parentDiv, colors)
   }
 
 }
