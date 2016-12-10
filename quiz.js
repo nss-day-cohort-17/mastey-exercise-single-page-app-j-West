@@ -34,7 +34,7 @@ function makeBorderBigger(div) {
   inputBarChanges()
 }
 
-function isTargetADiv(e) {
+function borderAndBackgroundDefault() {
   var carDivs = document.querySelector(".row").children
   for (var i = 0; i < carDivs.length; i++) {
 
@@ -44,6 +44,10 @@ function isTargetADiv(e) {
       carDivs[i].classList.remove("bigger-border")
     }
   }
+}
+
+function isTargetADiv(e) {
+borderAndBackgroundDefault()
 
   if (e.target.classList.contains("target-class") && e.target.tagName === "DIV") {
     var divToChange = e.target;
