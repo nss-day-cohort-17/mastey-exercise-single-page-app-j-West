@@ -11,9 +11,12 @@ function descriptionUpdate(e) {
 
       if (carDivs[i].classList.contains("bigger-border")) {
         selectedDiv = carDivs[i]
+        var char = inputField.value;
+        selectedDiv.querySelector("#updating").innerHTML = char
+        console.log();
         i += 100
       }
-      console.log(selectedDiv);
+      // console.log(selectedDiv);
   }
 
 }
@@ -73,7 +76,7 @@ function populatePage(data) {
                           <h3 class="text-center target-class">${data.cars[i].model}</h3>
                           <p class="text-center target-class">${data.cars[i].year}</p>
                           <p class="text-center target-class">${data.cars[i].price}</p>
-                          <p class="target-class">${data.cars[i].description}</p>
+                          <p id="updating" class="target-class">${data.cars[i].description}</p>
                         `
 
     console.log(colDiv1);
