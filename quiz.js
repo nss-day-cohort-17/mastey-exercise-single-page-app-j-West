@@ -5,28 +5,22 @@ var colors = ["goldenrod", "burlywood", "magenta", "tomato", "teal", "crimson",
               "mistyrose", "lightsalmon", "moccasin", "orchid", "silver",
               "thistle", "saddlebrown", "maroon"]
 
-function keepInputOrStartFresh() {
 
-}
 
 
 function descriptionUpdate(e) {
-  var carDivs = mainDiv.querySelector(".row").children
+  var carDivs = mainDiv.querySelectorAll(".pick-me")
   var selectedDiv;
-
-  // console.log(carDivs);
 
   for (var i = 0; i < carDivs.length; i++) {
 
       if (carDivs[i].classList.contains("bigger-border")) {
-        keepInputOrStartFresh()
         selectedDiv = carDivs[i]
         var char = inputField.value;
         selectedDiv.querySelector("#updating").innerHTML = char
-        console.log();
+
         i += 100
       }
-      // console.log(selectedDiv);
   }
 
 }
@@ -44,10 +38,7 @@ function getRandomNum() {
 //
 
 function biggerBorderAndBackgroundColor(div, cArray) {
-  // console.log("it works");
   var rando = getRandomNum()
-
-  console.log(rando);
   div.style.backgroundColor = cArray[rando]
   div.classList.toggle("bigger-border")
 
@@ -55,12 +46,11 @@ function biggerBorderAndBackgroundColor(div, cArray) {
 }
 
 function borderAndBackgroundDefault() {
-  var carDivs = document.querySelector(".row").children
+  var carDivs = document.querySelectorAll(".pick-me")
   for (var i = 0; i < carDivs.length; i++) {
 
 
     if (carDivs[i].classList.contains("border-class")) {
-      console.log("works");
       carDivs[i].style.backgroundColor = "inherit"
       carDivs[i].classList.remove("bigger-border")
     }
@@ -90,10 +80,14 @@ function populatePage(data) {
   rowDiv.classList.add("row")
 
   for (var i = 0; i < data.cars.length; i++) {
+    if (i !== 0 && i % 3 === 0) {
+      var rowDiv = document.createElement("div")
+        rowDiv.classList.add("row")
+    }
     var colDiv1 = document.createElement("div");
-    colDiv1.classList.add("col-md-3", "border-class", "target-class")
+    colDiv1.classList.add("col-md-3", "border-class", "target-class", "pick-me")
 
-    if (i !== 0) {
+    if (i !== 0 && i % 3 !== 0) {
       colDiv1.classList.add("col-md-offset-1")
     }
     colDiv1.innerHTML =  `
@@ -104,7 +98,7 @@ function populatePage(data) {
                           <p id="updating" class="target-class">${data.cars[i].description}</p>
                         `
 
-    console.log(colDiv1);
+
     rowDiv.appendChild(colDiv1);
     mainDiv.appendChild(rowDiv)
   }
@@ -116,7 +110,6 @@ function loadInventory() {
 
   myRequest.addEventListener("load", (e) => {
     var data = JSON.parse(e.target.responseText)
-    console.log(data)
     populatePage(data)
   });
   myRequest.open("GET", "https://spa-mastey-quiz.firebaseio.com/.json")
