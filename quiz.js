@@ -1,5 +1,14 @@
 var mainDiv = document.querySelector(".container")
 var inputField = document.querySelector("#input-field")
+var colors = ["goldenrod", "burlywood", "magenta", "tomato", "teal", "crimson",
+              "darkseagreen", "cyan", "mediumorchid", "oldlace", "gray",
+              "mistyrose", "lightsalmon", "moccasin", "orchid", "silver",
+              "thistle", "saddlebrown", "maroon"]
+
+function keepInputOrStartFresh() {
+
+}
+
 
 function descriptionUpdate(e) {
   var carDivs = mainDiv.querySelector(".row").children
@@ -10,6 +19,7 @@ function descriptionUpdate(e) {
   for (var i = 0; i < carDivs.length; i++) {
 
       if (carDivs[i].classList.contains("bigger-border")) {
+        keepInputOrStartFresh()
         selectedDiv = carDivs[i]
         var char = inputField.value;
         selectedDiv.querySelector("#updating").innerHTML = char
@@ -59,7 +69,7 @@ function borderAndBackgroundDefault() {
 
 function isTargetADiv(e) {
 borderAndBackgroundDefault()
-var colors = ["goldenrod", "burlywood", "magenta", "tomato", "teal", "crimson", "darkseagreen", "cyan", "mediumorchid", "oldlace", "gray", "mistyrose", "lightsalmon", "moccasin", "orchid", "silver", "thistle", "saddlebrown", "maroon"]
+
   if (e.target.classList.contains("target-class") && e.target.tagName === "DIV") {
     var divToChange = e.target;
     biggerBorderAndBackgroundColor(divToChange, colors)
