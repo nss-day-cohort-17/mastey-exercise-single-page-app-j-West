@@ -68,8 +68,8 @@ function borderAndBackgroundDefault() {
 }
 
 function isTargetADiv(e) {
-borderAndBackgroundDefault()
-
+  borderAndBackgroundDefault()
+  inputBarChanges()
   if (e.target.classList.contains("target-class") && e.target.tagName === "DIV") {
     var divToChange = e.target;
     biggerBorderAndBackgroundColor(divToChange, colors)
@@ -119,7 +119,7 @@ function loadInventory() {
     console.log(data)
     populatePage(data)
   });
-  myRequest.open("GET", "inventory.json")
+  myRequest.open("GET", "https://spa-mastey-quiz.firebaseio.com/.json")
   myRequest.send();
 }
 
