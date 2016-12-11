@@ -3,5 +3,9 @@
 }
 
 .bigger-border {
-  border: 3px solid black;
+  border: 5px solid black;
+}
+
+#move-input {
+  margin-left: 40%;
 }
