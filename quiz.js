@@ -95,7 +95,7 @@ function populatePage(data) {
                           <h3 class="text-center target-class">${data.cars[i].model}</h3>
                           <p class="text-center target-class">${data.cars[i].year}</p>
                           <p class="text-center target-class">${data.cars[i].price}</p>
-                          <div id="updating" class="target-class scrolling">${data.cars[i].description}</div>
+                          <p id="updating" class="target-class scrolling">${data.cars[i].description}</p>
                         `
 
 
