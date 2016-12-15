@@ -7,5 +7,18 @@
 }
 
 #move-input {
-  margin-left: 40%;
+  width: 100%
+}
+
+#input-field {
+  width: 100%;
+}
+
+.scrolling {
+
+  overflow-x: scroll;
+}
+
+.col-height-class {
+  height: 50%;
 }
