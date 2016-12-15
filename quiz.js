@@ -85,7 +85,7 @@ function populatePage(data) {
         rowDiv.classList.add("row")
     }
     var colDiv1 = document.createElement("div");
-    colDiv1.classList.add("col-md-3", "border-class", "target-class", "pick-me")
+    colDiv1.classList.add("col-md-3", "border-class", "target-class", "pick-me", "col-height-class")
 
     if (i !== 0 && i % 3 !== 0) {
       colDiv1.classList.add("col-md-offset-1")
@@ -95,7 +95,7 @@ function populatePage(data) {
                           <h3 class="text-center target-class">${data.cars[i].model}</h3>
                           <p class="text-center target-class">${data.cars[i].year}</p>
                           <p class="text-center target-class">${data.cars[i].price}</p>
-                          <p id="updating" class="target-class">${data.cars[i].description}</p>
+                          <div id="updating" class="target-class scrolling">${data.cars[i].description}</div>
                         `
 
 
