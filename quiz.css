@@ -1,0 +1,28 @@
+.border-class {
+  border: 1px solid black;
+}
+
+.bigger-border {
+  border: 5px solid black;
+}
+
+#move-input {
+  width: 100%
+}
+
+#input-field {
+  width: 100%;
+}
+
+.scrolling {
+
+  overflow-x: scroll;
+}
+
+.col-height-class {
+  height: 50%;
+}
+
+.spacing-bottom {
+  margin-bottom: 2em;
+}
