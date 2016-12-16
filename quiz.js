@@ -1,11 +1,10 @@
 var mainDiv = document.querySelector(".container")
 var inputField = document.querySelector("#input-field")
+var currentColor = ""
 var colors = ["goldenrod", "burlywood", "magenta", "tomato", "teal", "crimson",
               "darkseagreen", "cyan", "mediumorchid", "oldlace", "gray",
               "mistyrose", "lightsalmon", "moccasin", "orchid", "silver",
               "thistle", "saddlebrown", "maroon"]
-
-
 
 
 function descriptionUpdate(e) {
@@ -14,13 +13,12 @@ function descriptionUpdate(e) {
 
   for (var i = 0; i < carDivs.length; i++) {
 
-      if (carDivs[i].classList.contains("bigger-border")) {
-        selectedDiv = carDivs[i]
-        var char = inputField.value;
-        selectedDiv.querySelector("#updating").innerHTML = char
-
-        i += 100
-      }
+    if (carDivs[i].classList.contains("bigger-border")) {
+      selectedDiv = carDivs[i]
+      var char = inputField.value;
+      selectedDiv.querySelector("#updating").innerHTML = char
+      return
+    }
   }
 
 }
@@ -31,19 +29,19 @@ function inputBarChanges() {
   inputField.focus();
 }
 
+
 function getRandomNum() {
-  return Math.floor(Math.random() * 19);
+  return colors[Math.floor(Math.random() * 19)]
 }
 
-//
 
-function biggerBorderAndBackgroundColor(div, cArray) {
-  var rando = getRandomNum()
-  div.style.backgroundColor = cArray[rando]
+function biggerBorderAndBackgroundColor(div, color) {
+  div.style.backgroundColor = color
   div.classList.toggle("bigger-border")
 
   inputBarChanges()
 }
+
 
 function borderAndBackgroundDefault() {
   var carDivs = document.querySelectorAll(".pick-me")
@@ -57,27 +55,29 @@ function borderAndBackgroundDefault() {
   }
 }
 
+
 function isTargetADiv(e) {
   borderAndBackgroundDefault()
   inputBarChanges()
   if (e.target.classList.contains("target-class") && e.target.tagName === "DIV") {
     var divToChange = e.target;
-    biggerBorderAndBackgroundColor(divToChange, colors)
+    biggerBorderAndBackgroundColor(divToChange, getRandomNum())
   } else if (e.target.classList.contains("target-class")) {
     var parentDiv = e.target.parentNode;
-    biggerBorderAndBackgroundColor(parentDiv, colors)
+    biggerBorderAndBackgroundColor(parentDiv, getRandomNum())
   }
-
 }
+
 
 function activateEvents() {
   mainDiv.addEventListener("click", isTargetADiv)
   inputField.addEventListener("keyup", descriptionUpdate)
 }
 
+
 function populatePage(data) {
   var rowDiv = document.createElement("div");
-  rowDiv.classList.add("row")
+  rowDiv.classList.add("row", "spacing-bottom")
 
   for (var i = 0; i < data.cars.length; i++) {
     if (i !== 0 && i % 3 === 0) {
@@ -97,7 +97,6 @@ function populatePage(data) {
                           <p class="text-center target-class">${data.cars[i].price}</p>
                           <p id="updating" class="target-class scrolling">${data.cars[i].description}</p>
                         `
-
 
     rowDiv.appendChild(colDiv1);
     mainDiv.appendChild(rowDiv)

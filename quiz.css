@@ -22,3 +22,7 @@
 .col-height-class {
   height: 50%;
 }
+
+.spacing-bottom {
+  margin-bottom: 2em;
+}
